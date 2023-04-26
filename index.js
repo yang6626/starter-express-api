@@ -39,5 +39,9 @@ bot.on(message("text"), async (ctx) => {
   // Using context shortcut
   await ctx.reply(`Hello ${ctx.state.role}`);
 });
-bot.launch();
+bot.launch({
+  webhook: {
+    domain: "https://lime-calm-beaver.cyclic.app/",
+  },
+});
 

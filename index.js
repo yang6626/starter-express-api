@@ -13,15 +13,17 @@
 //     }
 // })
 // app.listen(process.env.PORT || 3000)
-import { Telegraf } from "telegraf";
+import { Telegraf, Telegram } from "telegraf";
 import { message } from "telegraf/filters";
 const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
+
+bot.telegram.setMyCommands([{ command: "设置费率", description: "设置费率" }]);
 
 bot.command("设置费率", async (ctx) => {
   console.log(ctx);
   await ctx.reply("设置成功");
-  // // Explicit usage
-  // await ctx.telegram.sendMessage();
+  ctx.telegram.setMyCommands;
+  await ctx.telegram.sendMessage();
 
   // // Using context shortcut
   // await ctx.leaveChat();

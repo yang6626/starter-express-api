@@ -1,7 +1,15 @@
 const express = require('express')
-const app = express()
-app.all('/', (req, res) => {
-    console.log("Just got a request!")
-    res.send(process.env.TELEGRAM_TOKEN);
+const app = express();
+app.use(express.json());
+app.all('/', async (req, res) => {
+    try {
+      const res = await fetch(
+        `https://api.telegram.org/bot${process.env.TELEGRAM_TOKEN}/getMe`
+      );
+      const json = await res.json();
+      res.json(json);
+    } catch (error) {
+      console.log(error);
+    }
 })
 app.listen(process.env.PORT || 3000)

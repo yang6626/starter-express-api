@@ -14,6 +14,7 @@
 // })
 // app.listen(process.env.PORT || 3000)
 import { Telegraf } from "telegraf";
+import { message } from "telegraf/filters";
 const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
 
 // bot.command("say", async (ctx) => {

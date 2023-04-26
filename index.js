@@ -7,7 +7,7 @@ app.all('/', async (req, res) => {
         `https://api.telegram.org/bot${process.env.TELEGRAM_TOKEN}/getMe`
       );
       const json = await data.json();
-      res.json(json);
+      res.send(json);
     } catch (error) {
       console.log(error);
     }

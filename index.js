@@ -17,15 +17,15 @@ import { Telegraf } from "telegraf";
 import { message } from "telegraf/filters";
 const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
 
-// bot.command("say", async (ctx) => {
-//   console.log(ctx);
-//   ctx.reply("say command");
-//   // // Explicit usage
-//   // await ctx.telegram.sendMessage();
+bot.command("设置费率", async (ctx) => {
+  console.log(ctx);
+  await ctx.reply("设置成功");
+  // // Explicit usage
+  // await ctx.telegram.sendMessage();
 
-//   // // Using context shortcut
-//   // await ctx.leaveChat();
-// });
+  // // Using context shortcut
+  // await ctx.leaveChat();
+});
 
 // bot.start((ctx) => ctx.reply("Welcome"));
 bot.on(message("text"), async (ctx) => {

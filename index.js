@@ -16,16 +16,27 @@
 import { Telegraf } from "telegraf";
 const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
 
-bot.command("say", async (ctx) => {
+// bot.command("say", async (ctx) => {
+//   console.log(ctx);
+//   ctx.reply("say command");
+//   // // Explicit usage
+//   // await ctx.telegram.sendMessage();
+
+//   // // Using context shortcut
+//   // await ctx.leaveChat();
+// });
+
+// bot.start((ctx) => ctx.reply("Welcome"));
+bot.on(message("text"), async (ctx) => {
   console.log(ctx);
-  ctx.reply("say command");
-  // // Explicit usage
-  // await ctx.telegram.sendMessage();
+  // Explicit usage
+  // await ctx.telegram.sendMessage(
+  //   ctx.message.chat.id,
+  //   `Hello ${ctx.state.role}`
+  // );
 
-  // // Using context shortcut
-  // await ctx.leaveChat();
+  // Using context shortcut
+  await ctx.reply(`Hello ${ctx.state.role}`);
 });
-
-bot.start((ctx) => ctx.reply("Welcome"));
 bot.launch();
 

@@ -17,13 +17,11 @@ import { Telegraf, Telegram } from "telegraf";
 import { message } from "telegraf/filters";
 const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
 
-bot.telegram.setMyCommands([{ command: "设置费率", description: "设置费率" }]);
+bot.telegram.setMyCommands([{ command: "rate", description: "设置费率" }]);
 
-bot.command("设置费率", async (ctx) => {
+bot.command("rate", async (ctx) => {
   console.log(ctx);
   await ctx.reply("设置成功");
-  ctx.telegram.setMyCommands;
-  await ctx.telegram.sendMessage();
 
   // // Using context shortcut
   // await ctx.leaveChat();
